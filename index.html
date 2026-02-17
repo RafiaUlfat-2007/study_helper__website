@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Study Helper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .notes { max-width:600px;margin:20px auto;font-family:Arial; }
+        .card { border:1px solid #ddd;padding:12px;margin:8px 0;cursor:pointer; }
+        /* changed: animated collapsible details */
+        .card .details {
+            margin-top:8px;
+            color:#333;
+            background:#fafafa;
+            padding:0 8px; /* collapsed has no vertical padding */
+            border-radius:4px;
+            max-height:0;
+            overflow:hidden;
+            opacity:0;
+            transition: max-height 350ms ease, opacity 250ms ease, padding 250ms ease;
+        }
+        .card .details.open {
+            padding:8px;
+            max-height:400px; /* large enough for content */
+            opacity:1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-wrapper">
+        <!-- <img src="https://img.icons8.com/color/48/4CAF50/graduation-cap.png" class="logo"> -->
+        <span class="logo-text">Study_Helper</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#notes">Notes</a></li>
+            <li><a href="#timetable">Timetable</a></li>
+            <li><a href="#motivation">Motivation</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to Your Study Journey</h1>
+        <p>Unlock your potential with our comprehensive study tools and resources. Stay organized, motivated, and achieve your academic goals!</p>
+        <button class="cta-button">Get Started</button>
+    </section>
+
+    <!-- Notes Section -->
+    <section id="notes" class="section">
+        <h2>Study Notes</h2>
+        <div class="notes-grid">
+            <div class="note-card" data-full="Mathematics: Full syllabus, solved examples, step-by-step formula derivations, practice exercises with answers, and exam strategies for algebra, calculus and geometry.">
+                <h3><i class="fas fa-calculator"></i> Mathematics</h3>
+                <p>Comprehensive notes on algebra, calculus, geometry, and more. Includes formulas, examples, and practice problems.</p>
+                <a href="#" class="view-details">View Notes</a>
+            </div>
+            <div class="note-card" data-full="Science: Detailed explanations for physics, chemistry and biology topics, lab experiment walkthroughs, diagrams and practice questions with solutions.">
+                <h3><i class="fas fa-atom"></i> Science</h3>
+                <p>Explore physics, chemistry, and biology with detailed explanations, diagrams, and interactive simulations.</p>
+                <a href="#" class="view-details">View Notes</a>
+            </div>
+            <div class="note-card" data-full="History: Thorough timelines, context for major events, biographies of key figures, essay outlines and important dates to remember.">
+                <h3><i class="fas fa-history"></i> History</h3>
+                <p>Timelines, key events, and historical figures. Understand the past to shape your future.</p>
+                <a href="#" class="view-details">View Notes</a>
+            </div>
+            <div class="note-card" data-full="Languages: Grammar guides, extensive vocabulary lists, pronunciation tips, exercises, and sample conversations for practice.">
+                <h3><i class="fas fa-language"></i> Languages</h3>
+                <p>Grammar rules, vocabulary lists, and practice exercises for multiple languages.</p>
+                <a href="#" class="view-details">View Notes</a>
+            </div>
+            <div class="note-card" data-full="Computer Science: Concept explanations, algorithm walkthroughs, common interview problems, code samples and projects to build skills.">
+                <h3><i class="fas fa-code"></i> Computer Science</h3>
+                <p>Programming concepts, algorithms, data structures, and code examples in various languages.</p>
+                <a href="#" class="view-details">View Notes</a>
+            </div>
+            <div class="note-card" data-full="Literature: In-depth analysis, summaries, character studies, themes, and example essay responses for famous works.">
+                <h3><i class="fas fa-book"></i> Literature</h3>
+                <p>Analysis of classic and contemporary works, literary devices, and writing techniques.</p>
+                <a href="#" class="view-details">View Notes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timetable Section -->
+    <section id="timetable" class="section">
+        <h2>Weekly Study Schedule</h2>
+        <div class="timetable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>9:00 AM</td>
+                        <td>Mathematics</td>
+                        <td>Physics</td>
+                        <td>Chemistry</td>
+                        <td>Biology</td>
+                        <td>English</td>
+                        <td>Review</td>
+                        <td>Free Time</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 AM</td>
+                        <td>Mathematics</td>
+                        <td>Physics</td>
+                        <td>Chemistry</td>
+                        <td>Biology</td>
+                        <td>English</td>
+                        <td>Review</td>
+                        <td>Free Time</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 AM</td>
+                        <td>Break</td>
+                        <td>Break</td>
+                        <td>Break</td>
+                        <td>Break</td>
+                        <td>Break</td>
+                        <td>Break</td>
+                        <td>Free Time</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 PM</td>
+                        <td>History</td>
+                        <td>Languages</td>
+                        <td>Computer Science</td>
+                        <td>Literature</td>
+                        <td>Arts</td>
+                        <td>Project Work</td>
+                        <td>Free Time</td>
+                    </tr>
+                    <tr>
+                        <td>1:00 PM</td>
+                        <td>History</td>
+                        <td>Languages</td>
+                        <td>Computer Science</td>
+                        <td>Literature</td>
+                        <td>Arts</td>
+                        <td>Project Work</td>
+                        <td>Free Time</td>
+                    </tr>
+                    <tr>
+                        <td>2:00 PM</td>
+                        <td>Lunch</td>
+                        <td>Lunch</td>
+                        <td>Lunch</td>
+                        <td>Lunch</td>
+                        <td>Lunch</td>
+                        <td>Lunch</td>
+                        <td>Lunch</td>
+                    </tr>
+                    <tr>
+                        <td>3:00 PM</td>
+                        <td>Practice</td>
+                        <td>Lab Work</td>
+                        <td>Experiments</td>
+                        <td>Field Work</td>
+                        <td>Writing</td>
+                        <td>Hobbies</td>
+                        <td>Rest</td>
+                    </tr>
+                    <tr>
+                        <td>4:00 PM</td>
+                        <td>Practice</td>
+                        <td>Lab Work</td>
+                        <td>Experiments</td>
+                        <td>Field Work</td>
+                        <td>Writing</td>
+                        <td>Hobbies</td>
+                        <td>Rest</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Motivation Section -->
+    <section id="motivation" class="section">
+        <h2>Daily Motivation</h2>
+        <div class="motivation">
+            <p class="quote">"The only way to do great work is to love what you do. - Steve Jobs"</p>
+            <button id="generate-quote">Generate New Quote</button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2026 Student Study Helper. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" aria-label="Scroll to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Modal for full note details -->
+    <div id="detail-modal" class="modal" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <button class="modal-close" aria-label="Close details">&times;</button>
+            <h3 id="modal-title"></h3>
+            <p id="modal-body"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const notes = document.getElementById('notes');
+        notes.addEventListener('click', e => {
+            const card = e.target.closest('.card');
+            if (!card || !notes.contains(card)) return;
+            const detailsEl = card.querySelector('.details');
+            if (!detailsEl) return;
+            const isOpen = detailsEl.classList.contains('open');
+            if (isOpen) {
+                detailsEl.classList.remove('open');
+            } else {
+                detailsEl.textContent = card.dataset.details || 'No details available.';
+                detailsEl.classList.add('open');
+            }
+        });
+    </script>
+</body>
+</html>
